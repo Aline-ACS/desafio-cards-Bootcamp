@@ -1,0 +1,108 @@
+$height: 450px;
+$width: 300px;
+
+
+$theme-colors: (
+  "dark": #2b2d2f,
+);
+
+.rounded-top {
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+  }
+
+.efeito-nome a {
+    color: white;
+    transition: text-shadow 1s;
+
+    &:hover, &:active {
+        text-decoration: none;
+        text-shadow: 2px 2px 20px rgba(251, 255, 0, 0.7);
+        font-weight: 600;
+    }
+}
+
+.barra {
+    width: 0.5px;
+    background: rgb(170, 160, 160);
+    margin: 2px 2px;
+}
+
+.fundo {
+    padding: 10px 0;
+    background: rgba(0,0,0, 0.6);
+}
+
+.livros {
+    padding: 2em;
+    min-height: 100vh;
+}
+
+.grid {
+    padding-left: 200px;
+}
+
+.livros .grid {
+    display: grid;
+    gap: 1em ; 
+}
+
+@media (min-width: 560px) {
+    .livros .grid {
+        grid-template-columns: 300px 255px; 
+    }
+}
+
+@media (min-width: 880px) {
+    .livros .grid {
+        grid-template-columns: repeat(2, 310px); 
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+.livros figure {
+    text-align: center;
+}
+
+.img-livros {
+    object-fit:cover ; 
+    object-position: bottom;
+    height: $height;
+    width: $width;
+    transition: transform 500ms;
+}
+
+.flip_card {
+    perspective: 1000px; 
+    height: $height;
+}
+
+.img_card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 3s;
+    margin: 2px;
+}
+
+.flip_card:hover .img_card {
+    transform: rotateY(180deg);
+}
+
+.verso {
+    height: $height;
+    width: $width;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+.frente,
+.verso {
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+    width: $width;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
